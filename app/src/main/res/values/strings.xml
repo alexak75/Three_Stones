@@ -4,4 +4,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="welcome_main_label_textview">Welcome to Three Stones!</string>
+    <string name="newgame_button">New Game</string>
+    <string name="resumegame_button">Resume Game</string>
+    <string name="exit_button">Exit</string>
+    <string name="namelabel">Created by Alexander Kuhles</string>
 </resources>
