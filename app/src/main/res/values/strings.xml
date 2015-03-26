@@ -8,4 +8,5 @@
     <string name="resumegame_button">Resume Game</string>
     <string name="exit_button">Exit</string>
     <string name="namelabel">Created by Alexander Kuhles</string>
+    <string name="buttonpadding">20dp</string>
 </resources>

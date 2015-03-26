@@ -23,32 +23,40 @@
             android:layout_height="wrap_content"
             android:text="@string/namelabel"
             android:textSize="20sp"
-            android:paddingBottom="180sp"/>
+            android:paddingBottom="120sp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="200dp"
             android:gravity="center">
-
 
             <Button
                 android:layout_width="500dp"
                 android:layout_height="wrap_content"
                 android:text="@string/newgame_button"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:onClick="onNewGameClick"
                 android:textSize="25sp"/>
-                <!--android:onClick="onNewGame"-->
+
             <Button
                 android:layout_width="500dp"
                 android:layout_height="wrap_content"
                 android:text="@string/resumegame_button"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:layout_marginTop="50dp"
+                android:onClick="onResumeGameClick"
                 android:textSize="25sp"/>
-                <!--android:onClick="onResumeGame"-->
+
             <Button
                 android:layout_width="500dp"
                 android:layout_height="wrap_content"
                 android:text="@string/exit_button"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:layout_marginTop="50dp"
                 android:textSize="25sp"
                 android:onClick="onExit"/>
             </LinearLayout>

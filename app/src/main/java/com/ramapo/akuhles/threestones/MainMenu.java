@@ -1,5 +1,6 @@
 package com.ramapo.akuhles.threestones;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,7 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainMenu extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,5 +41,21 @@ public class MainActivity extends ActionBarActivity {
 
     public void onExit(View view) {
         finish();
+    }
+
+    public void onNewGameClick(View view) {
+        Intent getNewGameActivity = new Intent(this, Game.class);
+        final int result = 1;
+        boolean userResumeGame = false;
+        getNewGameActivity.putExtra("callingActivity", userResumeGame);
+        startActivity(getNewGameActivity);
+    }
+
+    public void onResumeGameClick(View view) {
+        Intent getNewGameActivity = new Intent(this, Game.class);
+        final int result = 1;
+        boolean userResumeGame = true;
+        getNewGameActivity.putExtra("callingActivity", userResumeGame);
+        startActivity(getNewGameActivity);
     }
 }
