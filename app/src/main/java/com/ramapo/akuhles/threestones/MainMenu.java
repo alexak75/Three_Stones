@@ -44,7 +44,7 @@ public class MainMenu extends ActionBarActivity {
     }
 
     public void onNewGameClick(View view) {
-        Intent getNewGameActivity = new Intent(this, Game.class);
+        Intent getNewGameActivity = new Intent(this, GameActivity.class);
         final int result = 1;
         boolean userResumeGame = false;
         getNewGameActivity.putExtra("callingActivity", userResumeGame);
@@ -52,7 +52,7 @@ public class MainMenu extends ActionBarActivity {
     }
 
     public void onResumeGameClick(View view) {
-        Intent getNewGameActivity = new Intent(this, Game.class);
+        Intent getNewGameActivity = new Intent(this, GameActivity.class);
         final int result = 1;
         boolean userResumeGame = true;
         getNewGameActivity.putExtra("callingActivity", userResumeGame);
