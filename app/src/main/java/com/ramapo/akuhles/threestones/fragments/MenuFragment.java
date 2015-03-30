@@ -1,4 +1,4 @@
-package fragments;
+package com.ramapo.akuhles.threestones.fragments;
 
 import android.app.Fragment;
 
