@@ -1,22 +1,23 @@
-<android.support.v4.widget.SlidingPaneLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/spLayout"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
     <fragment
         android:id="@+id/gameBoard"
-        android:name="com.ramapo.akuhles.threestones.fragments.BoardFragment"
+        class="com.ramapo.akuhles.threestones.fragments.BoardFragment"
         android:layout_width="match_parent"
-        android:layout_height="800dp"
+        android:layout_height="400dp"
         android:layout_gravity="top"
         android:layout_weight="2"/>
 
     <fragment
         android:id="@+id/gameMenu"
-        android:name="com.ramapo.akuhles.threestones.fragments.MenuFragment"
+        class="com.ramapo.akuhles.threestones.fragments.MenuFragment"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_gravity="bottom"
         android:layout_weight="1"/>
 
-</android.support.v4.widget.SlidingPaneLayout>
+</LinearLayout>
