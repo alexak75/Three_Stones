@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 public class PocketTableView extends ViewGroup{
 
     private int pocketSize;
-    private int numRow;
-    private int numCol;
+    private int numRow, numCol;
+    private int width, height;
 
     public PocketTableView(Context context) {
         super(context);
@@ -34,7 +34,7 @@ public class PocketTableView extends ViewGroup{
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         int childCount = getChildCount();
 
-        for (int i=0; i < childCount; i++) {
+        for (int i = 0; i < childCount; i++) {
             PocketImageView pImg = (PocketImageView) getChildAt(i);
 
             int left = pImg.getCol() * pocketSize;
@@ -47,11 +47,20 @@ public class PocketTableView extends ViewGroup{
 
     }
 
-    public int[] initializePockets(int width, int height, int dotSize) {
-        this.pocketSize = dotSize;
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int parentWidth  = MeasureSpec.getSize(widthMeasureSpec);
+        int parentHeight = MeasureSpec.getSize(heightMeasureSpec);
 
-        numRow = height / dotSize + 1;
-        numCol = width / dotSize + 1;
+        this.setMeasuredDimension(parentWidth, parentHeight);
+    }
+
+    public int[] initializePockets(int w, int h, int pocketSize) {
+        width = w;
+        height = h;
+        this.pocketSize = pocketSize;
+        numRow = 11;
+        numCol = 11;
 
         for (int r = 0; r < numRow; r++) {
             for (int c = 0; c < numCol; c++) {

@@ -21,9 +21,7 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.linearLayout = (LinearLayout) findViewById(R.id.mainLayout);
-
         pocketTableFrag = (BoardFragment) getFragmentManager()
-                .findFragmentById(R.id.gameBoard);
+                .findFragmentById(R.id.board);
     }
 }

@@ -48,6 +48,7 @@ public class MainMenu extends ActionBarActivity {
         final int result = 1;
         boolean userResumeGame = false;
         getNewGameActivity.putExtra("callingActivity", "GameActivity");
+        getNewGameActivity.putExtra("resumeGameBool", userResumeGame);
         startActivity(getNewGameActivity);
     }
 
@@ -56,6 +57,7 @@ public class MainMenu extends ActionBarActivity {
         final int result = 1;
         boolean userResumeGame = true;
         getNewGameActivity.putExtra("callingActivity", "GameActivity");
+        getNewGameActivity.putExtra("resumeGameBool", userResumeGame);
         startActivity(getNewGameActivity);
     }
 }

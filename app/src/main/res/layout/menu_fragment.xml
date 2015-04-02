@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="70dp">
+    android:padding="60dp">
 
     <RadioGroup
         android:layout_width="fill_parent"
@@ -11,21 +11,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:text="Black"
+            android:text="@string/radiobutton_black_title"
+            android:layout_marginBottom="15dp"
             android:id="@+id/radioButton" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:text="White"
+            android:text="@string/radiobutton_white_title"
+            android:layout_marginBottom="15dp"
             android:id="@+id/radioButton2" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:text="Clear"
+            android:text="@string/radiobutton_clear_title"
+            android:layout_marginBottom="15dp"
             android:id="@+id/radioButton3" />
 
     </RadioGroup>
@@ -35,7 +38,7 @@
             android:layout_height="wrap_content"
             android:text="Make Move"
             android:id="@+id/button"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_alignParentRight="true"/>
 
 

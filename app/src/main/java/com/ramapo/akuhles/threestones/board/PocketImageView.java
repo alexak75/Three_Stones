@@ -1,8 +1,11 @@
 package com.ramapo.akuhles.threestones.board;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
+import com.ramapo.akuhles.threestones.BoardConfig;
 
 /**
  * Created by Alex on 3/29/2015.
@@ -10,6 +13,8 @@ import android.widget.ImageView;
 public class PocketImageView extends ImageView {
 
     int row, col;
+    private int currentCellId;
+
 
     public PocketImageView(Context context) {
         super(context);
@@ -18,6 +23,9 @@ public class PocketImageView extends ImageView {
         super(context);
         this.row = row;
         this.col = col;
+        Drawable img  = getResources().getDrawable(BoardConfig.pocketImg);
+        setImageDrawable(img);
+        this.currentCellId = BoardConfig.pocketImg;
     }
     public PocketImageView(Context context, AttributeSet attrs) {
         super(context, attrs);

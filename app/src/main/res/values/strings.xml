@@ -9,4 +9,7 @@
     <string name="exit_button">Exit</string>
     <string name="namelabel">Created by Alexander Kuhles</string>
     <string name="buttonpadding">20dp</string>
+    <string name="radiobutton_black_title">Black</string>
+    <string name="radiobutton_white_title">White</string>
+    <string name="radiobutton_clear_title">Clear</string>
 </resources>
