@@ -27,7 +27,6 @@ public class BoardFragment extends Fragment implements OnTouchListener {
         return false;
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.board_fragment, container, true);
@@ -39,9 +38,10 @@ public class BoardFragment extends Fragment implements OnTouchListener {
     }
 
     private void createBoard() {
+        p = new Point();
         Display display = getActivity().getWindowManager().getDefaultDisplay();
         display.getSize(p);
-        pocketTable.initializePockets(p.x, p.y, 10);
+        pocketTable.initializePockets(p.x, p.y);
     }
 
 }

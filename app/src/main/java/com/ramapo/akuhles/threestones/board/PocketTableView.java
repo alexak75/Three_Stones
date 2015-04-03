@@ -9,7 +9,7 @@ import android.view.ViewGroup;
  */
 public class PocketTableView extends ViewGroup{
 
-    private int pocketSize;
+    private final int POCKET_SIZE = 80;
     private int numRow, numCol;
     private int width, height;
 
@@ -24,41 +24,15 @@ public class PocketTableView extends ViewGroup{
     }
 
     public int getRow(int y) {
-        return (int) Math.ceil(y / pocketSize);
+        return (int) Math.ceil(y / POCKET_SIZE);
     }
     public int getColumn(int x) {
-        return (int) Math.ceil( x / pocketSize);
+        return (int) Math.ceil( x / POCKET_SIZE);
     }
 
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        int childCount = getChildCount();
-
-        for (int i = 0; i < childCount; i++) {
-            PocketImageView pImg = (PocketImageView) getChildAt(i);
-
-            int left = pImg.getCol() * pocketSize;
-            int top = pImg.getRow()  * pocketSize;
-            int right = left + pocketSize ;
-            int bottom = top + pocketSize ;
-
-            pImg.layout(left, top, right, bottom);
-        }
-
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int parentWidth  = MeasureSpec.getSize(widthMeasureSpec);
-        int parentHeight = MeasureSpec.getSize(heightMeasureSpec);
-
-        this.setMeasuredDimension(parentWidth, parentHeight);
-    }
-
-    public int[] initializePockets(int w, int h, int pocketSize) {
+    public int[] initializePockets(int w, int h) {
         width = w;
         height = h;
-        this.pocketSize = pocketSize;
         numRow = 11;
         numCol = 11;
 
@@ -69,5 +43,32 @@ public class PocketTableView extends ViewGroup{
             }
         }
         return new int[]{numRow, numCol};
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int parentWidth  = MeasureSpec.getSize(widthMeasureSpec);
+        int parentHeight = MeasureSpec.getSize(heightMeasureSpec);
+
+        this.setMeasuredDimension(parentWidth, parentHeight);
+    }
+
+
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        int childCount = getChildCount();
+
+        for (int i = 0; i < childCount; i++) {
+            PocketImageView pImg = (PocketImageView) getChildAt(i);
+
+            int left = pImg.getCol() * POCKET_SIZE;
+            int top = pImg.getRow()  * POCKET_SIZE;
+            int right = left + POCKET_SIZE;
+            int bottom = top + POCKET_SIZE;
+
+            pImg.layout(left, top, right, bottom);
+        }
+
     }
 }

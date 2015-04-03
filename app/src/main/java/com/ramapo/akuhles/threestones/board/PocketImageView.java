@@ -14,6 +14,7 @@ public class PocketImageView extends ImageView {
 
     int row, col;
     private int currentCellId;
+    private Context context;
 
 
     public PocketImageView(Context context) {
@@ -21,6 +22,7 @@ public class PocketImageView extends ImageView {
     }
     public PocketImageView(Context context, int row, int col) {
         super(context);
+        this.context = context;
         this.row = row;
         this.col = col;
         Drawable img  = getResources().getDrawable(BoardConfig.pocketImg);
