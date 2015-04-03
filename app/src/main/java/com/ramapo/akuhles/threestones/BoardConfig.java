@@ -5,6 +5,6 @@ package com.ramapo.akuhles.threestones;
  */
 public class BoardConfig {
 
-    public static int pocketImg = R.drawable.pocket50;
+    public static int pocketImg = R.drawable.pocket50_circle;
 
 }
