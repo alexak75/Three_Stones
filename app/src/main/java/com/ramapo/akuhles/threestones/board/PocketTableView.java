@@ -9,7 +9,8 @@ import android.view.ViewGroup;
  */
 public class PocketTableView extends ViewGroup{
 
-    private final int POCKET_SIZE = 80;
+    private final int POCKET_SIZE = 65;
+    private int boardMargin;
     private int numRow, numCol;
     private int width, height;
 
@@ -33,13 +34,23 @@ public class PocketTableView extends ViewGroup{
     public int[] initializePockets(int w, int h) {
         width = w;
         height = h;
+        boardMargin = (width - (POCKET_SIZE * 11)) / 2;
         numRow = 11;
         numCol = 11;
 
         for (int r = 0; r < numRow; r++) {
             for (int c = 0; c < numCol; c++) {
-                PocketImageView pImg = new PocketImageView(getContext(), r, c);
-                this.addView(pImg);
+                if ((r == 0 && c > 3 && c < 7) || (r == 1 && c > 2 && c < 8) || (r == 2 && c > 1 && c < 9) ||
+                        (r == 3 && c > 0 && c < 10) || ((r > 3 && r < 7) && c >= 0 && c <= 11) ||
+                        (r == 7 && c > 0 && c < 10) || (r == 8 && c > 1 && c < 9) ||
+                        (r == 9 && c > 2 && c < 8) || (r == 10 && c > 3 && c < 7)) {
+
+                    if (!(r == 5 && c == 5)) {
+                        PocketImageView pImg = new PocketImageView(getContext(), r, c);
+                        this.addView(pImg);
+                    }
+
+                }
             }
         }
         return new int[]{numRow, numCol};
@@ -62,8 +73,8 @@ public class PocketTableView extends ViewGroup{
         for (int i = 0; i < childCount; i++) {
             PocketImageView pImg = (PocketImageView) getChildAt(i);
 
-            int left = pImg.getCol() * POCKET_SIZE;
-            int top = pImg.getRow()  * POCKET_SIZE;
+            int left = pImg.getCol() * POCKET_SIZE + boardMargin;
+            int top = pImg.getRow()  * POCKET_SIZE + boardMargin;
             int right = left + POCKET_SIZE;
             int bottom = top + POCKET_SIZE;
 
