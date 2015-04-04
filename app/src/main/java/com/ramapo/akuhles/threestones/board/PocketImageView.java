@@ -90,7 +90,6 @@ public class PocketImageView extends ImageView {
         this.childIndex = childIndex;
     }
 
-
     public int getRow() {
         return row;
     }
