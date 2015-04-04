@@ -24,6 +24,13 @@ public class BoardFragment extends Fragment implements OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        int touchx = (int) event.getX();
+        int touchy = (int) event.getY();
+
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            pocketTable.setStone(touchx, touchy);
+            return true;
+        }
         return false;
     }
 
@@ -32,7 +39,10 @@ public class BoardFragment extends Fragment implements OnTouchListener {
         View v = inflater.inflate(R.layout.board_fragment, container, true);
         pocketTable = (PocketTableView) v.findViewById(R.id.board);
         pocketTable.setOnTouchListener(this);
+
         createBoard();
+
+        pocketTable.setCurrentColor(R.drawable.pocket50);
         this.setRetainInstance(true);
         return v;
     }

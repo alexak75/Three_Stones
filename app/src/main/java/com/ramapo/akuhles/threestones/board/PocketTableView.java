@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 public class PocketTableView extends ViewGroup{
 
     private final int POCKET_SIZE = 65;
+    private int currentColor;
     private int boardMargin;
     private int numRow, numCol;
     private int width, height;
@@ -24,11 +25,8 @@ public class PocketTableView extends ViewGroup{
         super(context, attrs, defStyleAttr);
     }
 
-    public int getRow(int y) {
-        return (int) Math.ceil(y / POCKET_SIZE);
-    }
-    public int getColumn(int x) {
-        return (int) Math.ceil( x / POCKET_SIZE);
+    public void setCurrentColor(int currentColor) {
+        this.currentColor = currentColor;
     }
 
     public int[] initializePockets(int w, int h) {
@@ -73,13 +71,51 @@ public class PocketTableView extends ViewGroup{
         for (int i = 0; i < childCount; i++) {
             PocketImageView pImg = (PocketImageView) getChildAt(i);
 
+            pImg.setChildIndex(i);
+
             int left = pImg.getCol() * POCKET_SIZE + boardMargin;
             int top = pImg.getRow()  * POCKET_SIZE + boardMargin;
             int right = left + POCKET_SIZE;
             int bottom = top + POCKET_SIZE;
 
+            pImg.setLeftBound(left);
+            pImg.setTopBound(top);
+            pImg.setRightBound(right);
+            pImg.setBottomBound(bottom);
+
             pImg.layout(left, top, right, bottom);
         }
 
+    }
+
+    public int getChildIndex(int id) {
+        for (int i = 0; i < 80; i++) {
+            PocketImageView p = (PocketImageView) getChildAt(i);
+
+            if (p.getPocketId() == id) {
+                return p.getChildIndex();
+            }
+        }
+        return -1;
+    }
+
+    public int getPocketIdAt(int x, int y) {
+        for (int i = 0; i < 80; i++) {
+            PocketImageView p = (PocketImageView) getChildAt(i);
+
+            if (x > p.getLeftBound() && x < p.getRightBound()
+                    && y < p.getBottomBound() && y > p.getTopBound()) {
+                return p.getPocketId();
+            }
+        }
+        return -1;
+    }
+
+    public void setStone(int touchx, int touchy) {
+        PocketImageView pImg = (PocketImageView) getChildAt(getChildIndex(getPocketIdAt(touchx, touchy)));
+
+        if (pImg != null) {
+            pImg.placeStone(currentColor);
+        }
     }
 }
