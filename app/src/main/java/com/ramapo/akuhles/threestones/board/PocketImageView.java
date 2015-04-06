@@ -106,11 +106,6 @@ public class PocketImageView extends ImageView {
         if (resId != R.drawable.pocket50_circle) {
             setImageDrawable(d);
             this.setVisibility(View.GONE);
-            //ptv.removeView(ptv.getChildAt());
-            //ptv.addView(this);
-        }
-        else {
-
         }
     }
 }

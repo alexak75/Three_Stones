@@ -5,7 +5,8 @@
 
     <RadioGroup
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:id="@+id/rb_group">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -13,7 +14,8 @@
             android:textSize="30sp"
             android:text="@string/radiobutton_black_title"
             android:layout_marginBottom="15dp"
-            android:id="@+id/radioButton" />
+            android:onClick="onRadioButtonClicked"
+            android:id="@+id/rb_black"/>
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -21,7 +23,8 @@
             android:textSize="30sp"
             android:text="@string/radiobutton_white_title"
             android:layout_marginBottom="15dp"
-            android:id="@+id/radioButton2" />
+            android:onClick="onRadioButtonClicked"
+            android:id="@+id/rb_white" />
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -29,7 +32,8 @@
             android:textSize="30sp"
             android:text="@string/radiobutton_clear_title"
             android:layout_marginBottom="15dp"
-            android:id="@+id/radioButton3" />
+            android:onClick="onRadioButtonClicked"
+            android:id="@+id/rb_clear" />
 
     </RadioGroup>
 

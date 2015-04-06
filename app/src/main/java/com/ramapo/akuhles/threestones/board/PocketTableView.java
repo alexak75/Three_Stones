@@ -2,7 +2,14 @@ package com.ramapo.akuhles.threestones.board;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+
+import com.ramapo.akuhles.threestones.BoardConfig;
+import com.ramapo.akuhles.threestones.R;
+import com.ramapo.akuhles.threestones.fragments.MenuFragment;
 
 /**
  * Created by Alex on 3/29/2015.
@@ -114,8 +121,11 @@ public class PocketTableView extends ViewGroup{
     public void setStone(int touchx, int touchy) {
         PocketImageView pImg = (PocketImageView) getChildAt(getChildIndex(getPocketIdAt(touchx, touchy)));
 
+
+
         if (pImg != null) {
             pImg.placeStone(currentColor);
+            pImg.setVisibility(View.VISIBLE);
         }
     }
 }
