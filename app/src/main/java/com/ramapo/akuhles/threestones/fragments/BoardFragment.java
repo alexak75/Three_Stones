@@ -22,6 +22,8 @@ public class BoardFragment extends Fragment implements OnTouchListener {
     private Point p;
     private PocketTableView pocketTable;
 
+
+
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         int touchx = (int) event.getX();
@@ -53,5 +55,10 @@ public class BoardFragment extends Fragment implements OnTouchListener {
         display.getSize(p);
         pocketTable.initializePockets(p.x, p.y);
     }
+
+    public PocketTableView getPocketTable() {
+        return this.pocketTable;
+    }
+
 
 }
