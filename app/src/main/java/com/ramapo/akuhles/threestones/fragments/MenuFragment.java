@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.ramapo.akuhles.threestones.R;
 
@@ -16,7 +17,6 @@ import com.ramapo.akuhles.threestones.R;
  */
 public class MenuFragment extends Fragment {
 
-    OnColorSelectedListener mCallback;
     View v;
 
     @Nullable
@@ -24,24 +24,6 @@ public class MenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.menu_fragment, container, true);
         return v;
-    }
-
-    public interface OnColorSelectedListener {
-        public void onColorSelected();
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-
-        // This makes sure that the container activity has implemented
-        // the callback interface. If not, it throws an exception
-        try {
-            mCallback = (OnColorSelectedListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnHeadlineSelectedListener");
-        }
     }
 
 }

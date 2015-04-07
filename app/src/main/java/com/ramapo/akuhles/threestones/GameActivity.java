@@ -16,7 +16,7 @@ import com.ramapo.akuhles.threestones.fragments.MenuFragment;
 /**
  * Created by Alex on 3/25/2015.
  */
-public class GameActivity extends Activity implements MenuFragment.OnColorSelectedListener {
+public class GameActivity extends Activity {
 
     private String colorSelection;
     private static RadioGroup colorButtonGroup;
@@ -25,21 +25,37 @@ public class GameActivity extends Activity implements MenuFragment.OnColorSelect
     private LinearLayout linearLayout;
 
     @Override
-    public void onColorSelected() {
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         pocketTableFrag = (BoardFragment) getFragmentManager()
                 .findFragmentById(R.id.board);
-    }
 
-    public String getColorSelection() {
-        return colorSelection;
+        RadioButton blackRB = (RadioButton) findViewById(R.id.rb_black);
+        RadioButton whiteRB = (RadioButton) findViewById(R.id.rb_white);
+        RadioButton clearRB = (RadioButton) findViewById(R.id.rb_clear);
+
+        blackRB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRadioButtonClicked(v);
+            }
+        });
+
+        whiteRB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRadioButtonClicked(v);
+            }
+        });
+
+        clearRB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRadioButtonClicked(v);
+            }
+        });
     }
 
     public void onRadioButtonClicked(View view) {
@@ -48,15 +64,16 @@ public class GameActivity extends Activity implements MenuFragment.OnColorSelect
             case R.id.rb_black:
                 if (checked)
                     colorSelection = "black";
-                    break;
+                break;
             case R.id.rb_white:
                 if (checked)
                     colorSelection = "white";
-                    break;
+                break;
             case R.id.rb_clear:
                 if (checked)
                     colorSelection = "clear";
-                    break;
+                break;
         }
     }
+
 }

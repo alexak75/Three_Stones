@@ -10,7 +10,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 
+import com.ramapo.akuhles.threestones.BoardConfig;
 import com.ramapo.akuhles.threestones.R;
 import com.ramapo.akuhles.threestones.board.PocketTableView;
 
@@ -21,8 +23,6 @@ public class BoardFragment extends Fragment implements OnTouchListener {
 
     private Point p;
     private PocketTableView pocketTable;
-
-
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -44,9 +44,40 @@ public class BoardFragment extends Fragment implements OnTouchListener {
 
         createBoard();
 
-        pocketTable.setCurrentColor(R.drawable.pocket50);
+        pocketTable.setCurrentColor(BoardConfig.blackStone);
         this.setRetainInstance(true);
+
+        RadioButton blackRB = (RadioButton) pocketTable.findViewById(R.id.rb_black);
+        RadioButton whiteRB = (RadioButton) pocketTable.findViewById(R.id.rb_white);
+        RadioButton clearRB = (RadioButton) pocketTable.findViewById(R.id.rb_clear);
+/*
+        blackRB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pocketTable.setCurrentColor(BoardConfig.blackStone);
+            }
+        });
+*/
+        whiteRB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pocketTable.setCurrentColor(BoardConfig.whiteStone);
+            }
+        });
+
+        clearRB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pocketTable.setCurrentColor(BoardConfig.clearStone);
+            }
+        });
+
         return v;
+    }
+
+    private void dothis() {
+
+
     }
 
     private void createBoard() {

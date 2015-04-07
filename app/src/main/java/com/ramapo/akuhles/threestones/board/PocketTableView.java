@@ -8,13 +8,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.ramapo.akuhles.threestones.BoardConfig;
+import com.ramapo.akuhles.threestones.GameActivity;
 import com.ramapo.akuhles.threestones.R;
 import com.ramapo.akuhles.threestones.fragments.MenuFragment;
 
 /**
  * Created by Alex on 3/29/2015.
  */
-public class PocketTableView extends ViewGroup{
+public class PocketTableView extends ViewGroup {
 
     private final int POCKET_SIZE = 65;
     private int currentColor;
