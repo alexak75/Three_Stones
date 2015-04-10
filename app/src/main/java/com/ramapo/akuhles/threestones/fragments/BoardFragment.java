@@ -46,18 +46,18 @@ public class BoardFragment extends Fragment implements OnTouchListener {
 
         pocketTable.setCurrentColor(BoardConfig.blackStone);
         this.setRetainInstance(true);
-
+/*
         RadioButton blackRB = (RadioButton) pocketTable.findViewById(R.id.rb_black);
         RadioButton whiteRB = (RadioButton) pocketTable.findViewById(R.id.rb_white);
         RadioButton clearRB = (RadioButton) pocketTable.findViewById(R.id.rb_clear);
-/*
+
         blackRB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pocketTable.setCurrentColor(BoardConfig.blackStone);
             }
         });
-*/
+
         whiteRB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +71,7 @@ public class BoardFragment extends Fragment implements OnTouchListener {
                 pocketTable.setCurrentColor(BoardConfig.clearStone);
             }
         });
-
+*/
         return v;
     }
 
